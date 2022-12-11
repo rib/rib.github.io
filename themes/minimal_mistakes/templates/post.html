@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>{{ page.title }} | {{ config.title }}</title>
+{% endblock %}
+
+{% block content %}
+<article class="page" itemtype="https://schema.org/CreativeWork">
+  <div class="page__inner-wrap">
+    <header>
+      <h1 id="page-title" class="page__title" itemprop="headline">{{ page.title }}</h1>
+    </header>
+    <section class="page__content" itemprop="text">
+      <p>
+        <div class="taxonomies_postpage">
+        {% if page.taxonomies.categories %}
+            {% for category in page.taxonomies.categories %}
+            <a href="{{ get_taxonomy_url(kind="categories", name=category) | safe }}">/{{ category }}</a>
+            {% endfor %}
+        {% endif %}
+        {% if page.taxonomies.tags %}
+            {% for tag in page.taxonomies.tags %}
+            &emsp;<a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">#{{ tag }}</a>
+            {% endfor %}
+        {% endif %}
+        </div>
+      </p>
+
+      <p>
+        {{ page.content | safe }}
+      </p>
+    </section>
+    <footer>
+      <div class="page__date">
+        <strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong>
+        {{ page.updated | default(value=page.date) }}</div>
+    </footer>
+  </div>
+</article>
+
+{% if page.extra.math %}
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+</script>
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+{% endif %}
+
+{% endblock content %}

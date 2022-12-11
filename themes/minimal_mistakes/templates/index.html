@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% set section = get_section(path="posts/_index.md") %}
+{% for page in section.pages %}
+  {% if loop.index0 == config.extra.mm_max_index_posts %}{% break %}{% endif %}
+  <div class="list__item">
+    <article class="archive__item">
+      <h2 class="archive__item-title no_toc">
+        <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+      </h2>
+      <p class="page__meta">
+        {#
+          <span class="page__meta-readtime"><i class="far fa-clock" aria-hidden="true"></i>
+            {% if page.reading_time %}
+              {{ page.reading_time }} minute read
+            {% else  %}
+              Less than 1 minute read
+            {% endif%}
+          </span>
+        #}
+        <div class="taxonomies_index">
+        {% if page.taxonomies.categories %}
+            {% for category in page.taxonomies.categories %}
+            &emsp;<a href="{{ get_taxonomy_url(kind="categories", name=category) | safe }}">/{{ category }}</a>
+            {% endfor %}
+        {% endif %}
+        {% if page.taxonomies.tags %}
+            {% for tag in page.taxonomies.tags %}
+            &emsp;<a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">#{{ tag }}</a>
+            {% endfor %}
+        {% endif %}
+        </div>
+      </p>
+      <p class="archive__item-excerpt" itemprop="description">
+        {% if page.summary -%}
+          {{ page.summary | safe }}
+        {% else %}
+          {{ page.content | striptags | truncate(length=280) | safe }}
+        {%- endif %}
+      </p>
+      <div class="article__info clearfix"><i class="far fa-calendar-alt"></i> <span>{{ page.date |date(format="%b %e, %Y") }} </span>
+      </div>
+    </article>
+  </div>
+{% endfor %}
+
+
+{% endblock content %}

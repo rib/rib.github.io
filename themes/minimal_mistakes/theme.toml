@@ -1,0 +1,22 @@
+name = "minimal_mistakes"
+description = "A Port of the Minimal Mistakes Jekyll theme"
+license = "MIT"
+min_version = "0.1.0"
+homepage = "https://github.com/mmistakes/minimal-mistakes"
+
+[extra]
+# Path to the header icon / favicon image.
+# Please save image to static/images
+mm_icon = "/images/logo.png"
+
+mm_favicon = "/images/favicon.png"
+
+# Size of image in header
+mm_icon_size = 70
+
+# number of posts in index.html.
+mm_max_index_posts = 5
+
+[author]
+homepage = "https://github.com/mmistakes/minimal-mistakes"
+name = "Michael Rose"

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p class="taxonomies_list">
+{% set categories = get_taxonomy(kind="categories") %}
+  {% for term in categories.items %}
+      <a href="{{ term.permalink }}">/{{ term.name }}
+      ({{ term.pages | length }})</a>&nbsp;
+  {% endfor %}
+</ul>
+</p>
+
+<p class="taxonomies_list">
+{% set tags = get_taxonomy(kind="tags") %}
+  {% for term in tags.items %}
+    <a href="{{ term.permalink }}">#{{ term.name }}
+    ({{ term.pages | length }})</a>&nbsp;
+  {% endfor %}
+</ul>
+</p>
+
+{% for year, posts in section.pages | group_by(attribute="year") %}
+    <h2>{{ year }}</h2>
+
+    {% for post in posts %}
+    <div class="list__item">
+      <article class="archive__item">
+        <h3 class="archive__item-title no_toc"><span class="item__meta">{{ post.date | date(format="%b, %e") }}:</span> <a href="{{ post.permalink }}">{{ post.title }}</a></h3>
+        <div class="taxonomies_index">
+            {% if post.taxonomies.categories %}
+                {% for category in post.taxonomies.categories %}
+                &emsp;<a href="{{ get_taxonomy_url(kind="categories", name=category) | safe }}">/{{ category }}</a>
+                {% endfor %}
+            {% endif %}
+            {% if post.taxonomies.tags %}
+                {% for tag in post.taxonomies.tags %}
+                &emsp;<a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">#{{ tag }}</a>
+                {% endfor %}
+            {% endif %}
+        </div>
+      </article>
+    </div>
+    {% endfor %}
+
+{% endfor %}
+
+{% endblock content %}

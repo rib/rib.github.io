@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang= "{{ lang }}">
+
+<head>
+  <meta charset="utf-8">
+  {% block title %}
+  <title>{{ config.title }}</title>
+  {% endblock %}
+
+  <link rel="shortcut icon" type="image/png" href="{{ config.extra.mm_favicon }}">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link rel="stylesheet" href="https://bluejekyll.github.io/blog/fontawesome-free-5.15.2-web/css/all.min.css">
+  <link rel="stylesheet" href="https://bluejekyll.github.io/blog/fontawesome-free-5.15.2-web/css/brands.min.css">
+  <link id="stylesheet" rel="stylesheet" type="text/css" href="/minimal-mistakes.css">
+</head>
+
+<body>
+  <div class="layout--single">
+      <div class="masthead">
+        <div class="masthead__inner-wrap">
+          <div class="masthead__menu">
+            <nav id="site-nav" class="greedy-nav">
+              <a href="/"><img class="profile-image" src="{{ config.base_url }}{{ config.extra.mm_icon }}" alt="{{ config.title }}"
+                      width="{{ config.extra.mm_icon_size }}" height=auto></a>
+              <a class="site-title" href="/">&nbsp;{{ config.title }}</a>
+
+              <ul class="visible-links">
+                <li class="masthead__menu-item">
+
+                  <a href='/posts'><span class="icon-text">
+                    <span class="icon">
+                        <i class="fas fa-th-list"></i>
+                    </span>
+                    <span>Posts</span>
+                  </span></a>
+                </li>
+                <li>
+                  <a class="navbar-item" href="https://github.com/rib">
+                    <span class="icon-text">
+                        <span class="icon">
+                            <i class="fab fa-github"></i>
+                        </span>
+                        <span>Github</span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+              <button class="greedy-nav__toggle" type="button" count="1" style>
+                <span class="visually-hidden">Toggle menu</span>
+                <div class="navicon"></div>
+              </button>
+              <ul class='hidden-links hidden'></ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="initial-content">
+        <div id="main" role="main">
+              {% block content %} {% endblock %}
+        </div>
+      </div>
+
+      <div class="page__footer">
+        <footer class="footer">
+          <div class="page__footer-follow">
+            <ul class="social-icons">
+              <li title="Linkedin">
+                <a class="button button--circle linkedin-button" itemprop="sameAs" href="https://www.linkedin.com/in/robert-bragg" target="_blank">
+                  <div class="icon">{% include "linkedin.xml" %}</div>
+                </a>
+              </li>
+              <li title="Github">
+                <a class="button button--circle github-button" itemprop="sameAs" href="https://github.com/rib" target="_blank">
+                  <div class="icon">{% include "github.xml" %}</div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          {% if config.extra.author %}
+          <div class="page__footer-copyright">
+            <a href="/">{{ config.title }}</a>&emsp;&copy; {{ config.extra.author }}<br>
+          </div>
+          {% endif %}
+        </footer>
+    </div>
+  </div>
+</body>
+
+<script type="text/javascript" src="/js/greedynav.js"></script>
+</html>
