@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Ribbiting Stuff</title>
+	<link href="https://rib.github.io/feed.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://rib.github.io"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2013-07-15T00:00:00+00:00</updated>
+	<id>https://rib.github.io/feed.xml</id>
+	<entry xml:lang="en">
+		<title>Rig Status Update</title>
+		<published>2013-07-15T00:00:00+00:00</published>
+		<updated>2013-07-15T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://rib.github.io/posts/rig-status-update/" type="text/html"/>
+		<id>https://rib.github.io/posts/rig-status-update/</id>
+		<content type="html">I&#x27;ve been continuing my work on the Rig project I &lt;a href=&quot;&#x2F;post&#x2F;rig-introduction&#x2F;&quot; target=&quot;_blank&quot;&gt;introduced&lt;&#x2F;a&gt;&amp;nbsp;back in September, as well as helping add Wayland support to GnomeShell, and was feeling bad that I haven&#x27;t made time to post about the progress of either project and so wanted to give a quick status update for Rig...&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+I think the easiest way to get a quick idea of how Rig has been shaping up is this overview video I made back in May that goes over the initial UI layout and features:&lt;br &#x2F;&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;embed&#x2F;EAQU7Nmp98M&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;&#x2F;iframe&gt;
+&lt;&#x2F;div&gt;
+&lt;br &#x2F;&gt;
+The main thing that&#x27;s been changing UI wise since I made that video is that the bottom area is evolving beyond just timeline management into an area for &quot;controllers&quot; that must handle more then simple key-frame based animations.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+Controllers will support several methods of controlling properties, where key-frame animations would be one way, but other methods would be physics simulation, expressions that relate properties together and all manner of other high level behaviours. As an example of a behaviour Chris Cummins, one of the interns I&#x27;ve been working with, is experimenting with a Boids based flocking simulation which might offer us a fun way to introduce emergent, nature inspired aesthetics to the backdrop of a device.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+Probably the biggest architectural change in Rig is that it&#x27;s now designed to be connected directly with a device that you are designing for to enable immediate feedback about performance, responsiveness and quality on real target hardware. We&#x27;ve added a networking layer using avahi and protocol buffers to discover devices and for synchronizing UI changes made in the designer with the device.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+Rig is aiming to help optimize the workflow of UI development and it seems that one of the biggest inefficiencies today is that interaction and visual designers often use tools that are completely unconstrained by the technologies and devices that will eventually be used to realize their ideas.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+Going further, the plan is to directly incorporate remote profiling visualization capabilities into Rig so that we can also allow device metrics to influence the design stages as early as possible instead of only using them as a diagnostic tool. UIs need to work within the limits of the hardware they run on otherwise the experience suffers. If we don&#x27;t move to a situation where real metrics can influence the design early we either have to continue being ultra conservative with our UIs or we risk big problems being discovered really late in the development process that can either force us back to the drawing board or leave us scrambling to fix the technology under pressure.&lt;br &#x2F;&gt;
+&lt;div&gt;
+&lt;br &#x2F;&gt;&lt;&#x2F;div&gt;
+To keep this update relatively short here&#x27;s a quick run-through of the work that&#x27;s been going on:&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+&lt;ul&gt;
+&lt;li&gt;UI design work&lt;&#x2F;li&gt;
+&lt;ul&gt;
+&lt;li&gt;Thanks to Mikael Metthey for his help creating mock ups for Rig, clearly a marked improvement over the very first visuals we used:&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;ul&gt;
+&lt;br &#x2F;&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;
+&lt;a href=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;rig-mock-up.png&quot; imageanchor=&quot;1&quot; style=&quot;margin-left: 1em; margin-right: 1em;&quot;&gt;&lt;img border=&quot;0&quot; height=&quot;200&quot; src=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;rig-mock-up.png&quot; width=&quot;320&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;&#x2F;div&gt;
+&lt;br &#x2F;&gt;
+&lt;ul&gt;
+&lt;li&gt;Device connectivity - as mentioned above.&lt;&#x2F;li&gt;
+&lt;li&gt;Neil Roberts has worked on basic OSX support.&lt;&#x2F;li&gt;
+&lt;li&gt;Neil also added binary update support since we&#x27;d like to aim for a browser like development model of continuously rolling out small features so once Rig is installed it will automatically evolve, getting better over time.&lt;&#x2F;li&gt;
+&lt;li&gt;Bump mapping support for 3D models, for detailed lighting effects over complex models.&lt;&#x2F;li&gt;
+&lt;li&gt;A pointillism effect by Plamena Manolova as a fun example of a generative art algorithm that can be handled efficiently on the GPU.&lt;&#x2F;li&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;
+&lt;a href=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;pointillism.png&quot; imageanchor=&quot;1&quot; style=&quot;margin-left: 1em; margin-right: 1em;&quot;&gt;&lt;img border=&quot;0&quot; height=&quot;320&quot; src=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;pointillism.png&quot; width=&quot;320&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;&#x2F;div&gt;
+&lt;li&gt;Default cylindrical texture mapping of models that don&#x27;t have their own texture coordinates.&lt;&#x2F;li&gt;
+&lt;li&gt;Plamena is currently implementing an algorithm for tiling images across an arbitrary mesh.&lt;&#x2F;li&gt;
+&lt;li&gt;Plamena has added initial support for real-time fur rendering, another visual style that clearly diverges from what&#x27;s achievable with the traditional PostScript rendering model.&lt;&#x2F;li&gt;
+&lt;li&gt;Chris has been working on a particle engine.&lt;&#x2F;li&gt;
+&lt;li&gt;Chris has also been working on a Boids simulation engine to emulate flocking behaviours. The inspiration for this basically came from an exhibition made by Universal Everything: &lt;i&gt;(Full disclosure - I work for Intel, although the point here isn&#x27;t the advertising, but just the idea of bringing more natural forms into user interfaces.)&lt;&#x2F;i&gt;&lt;&#x2F;li&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;
+    &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;embed&#x2F;7FSu1Iyc1as&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;&#x2F;iframe&gt;
+&lt;&#x2F;div&gt;
+
+&lt;li&gt;We&#x27;ve made some early progress experimenting with WebGL support.&lt;&#x2F;li&gt;
+&lt;ul&gt;
+&lt;li&gt;The low level graphics layer of Rig now supports WebGL but we have some further integration work to do still in the higher level engine code before we can really test the viability of this idea.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;li&gt;Drag &amp;amp; Drop, Copy &amp;amp; Paste - work in progress. Not having this is really getting in the way of lots of other important interaction and feature work that we need to move onto next.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+Next week I&#x27;m off to &lt;a href=&quot;http:&#x2F;&#x2F;s2013.siggraph.org&#x2F;&quot; target=&quot;_blank&quot;&gt;Siggraph&lt;&#x2F;a&gt;&amp;nbsp;where we&#x27;ll be publishing a whitepaper explaining why we feel there is a big opportunity to really raise the bar for how we manage UI development and we&#x27;ll also have a short video introducing the Rig project.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+I&#x27;ll also be at &lt;a href=&quot;https:&#x2F;&#x2F;www.guadec.org&#x2F;&quot; target=&quot;_blank&quot;&gt;Guadec&lt;&#x2F;a&gt;&amp;nbsp;in August and I&#x27;d love to chat with anyone interested in Rig.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+I&#x27;ll try not to wait so long before posting my next update here.</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Rig 1: A UI Designer &amp; Engine</title>
+		<published>2012-10-31T00:00:00+00:00</published>
+		<updated>2012-10-31T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://rib.github.io/posts/rig-introduction/" type="text/html"/>
+		<id>https://rib.github.io/posts/rig-introduction/</id>
+		<content type="html">
+&lt;br &#x2F;&gt;
+For anyone interested in graphics and in the design of user interfaces (UIs) I hope I can invite you to take a look at our release of&amp;nbsp;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;01org&#x2F;rig&quot; target=&quot;_blank&quot;&gt;Rig 1&lt;&#x2F;a&gt;&amp;nbsp;today.&amp;nbsp;Rig 1 is the start of a new design tool &amp;amp; UI engine that I&#x27;ve been working on recently with Neil Roberts and Damien Lespiau as a means to break from the status quo for developing interfaces, enabling more creative visuals and taking better advantage of our modern system hardware.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+In particular we are looking at designing UIs for consumer devices with an initial focus on native interfaces (device shells and applications), but also with an eye towards WebGL support in the future too.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+With Rig we want to bring interactivity into the UI design process to improve creativity and explore the possibilities of GPUs beyond the traditional PDF drawing model we have become so accustomed to. We want to see a design work flow that isn&#x27;t constrained by the static nature of tools such as Photoshop or mislead by offline post-processing tools such as After Effects. We think designers and engineers should be able to collaborate with a common technology like Rig.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+Lets start with a screenshot!&lt;br &#x2F;&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;
+&lt;a href=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;screenshot-latest-2.png&quot; imageanchor=&quot;1&quot; style=&quot;margin-left: 1em; margin-right: 1em;&quot;&gt;&lt;img border=&quot;0&quot; height=&quot;292&quot; src=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;screenshot-latest-2.png&quot; width=&quot;400&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;&#x2F;div&gt;
+&lt;br &#x2F;&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;
+&lt;&#x2F;div&gt;
+&lt;br &#x2F;&gt;
+This gives you a snapshot of how the interface looks today. For Rig 1 our focus has been on bootstrapping an integrated UI design tool &amp;amp; rendering engine which can showcase a few graphics techniques not traditionally used in user interfaces and allows basic scene and animation authoring.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+&lt;i&gt;If you&#x27;re wondering what mud, water, some trees and a sun have to do with creating fancy UIs; firstly I should own up to drawing them, so sorry about that, but it&#x27;s a&amp;nbsp;sneak&amp;nbsp;peek at the assets for a simple &quot;Fox, Goose and Corn&quot; puzzle, in the style of a pop-up book, we are looking to create for Rig 2.&lt;&#x2F;i&gt;&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+I&#x27;d like to highlight a few things about the interface:&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;
+&lt;a href=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;assets-pane.png&quot; imageanchor=&quot;1&quot; style=&quot;clear: left; float: left; margin-bottom: 1em; margin-right: 1em;&quot;&gt;&lt;img border=&quot;0&quot; height=&quot;200&quot; src=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;assets-pane.png&quot; width=&quot;63&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;&#x2F;div&gt;
+&lt;h3&gt;
+It all starts with assets:&lt;&#x2F;h3&gt;
+On the left of the UI you see a list of assets with a text entry to search based on tags and names. Assets might be regular images, they could be 3D meshes, they could be special ancillary images such as alpha masks or normal maps (Used for a technique called bump-mapping to give a surface a perturbed look under dynamic lighting).
+&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+Assets don&#x27;t have to be things created by artists though, they might also be things like scripts or data sources in later versions of Rig.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+The basic idea is that assets are the building blocks for any interface and so that&#x27;s why we start here. Click an asset and it&#x27;s added to the scene and assets can sometimes even be combined together to make more complex things, which I&#x27;ll talk more about later.&lt;br &#x2F;&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;
+&lt;br &#x2F;&gt;&lt;&#x2F;div&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;
+&lt;a href=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;main-area.png&quot; imageanchor=&quot;1&quot; style=&quot;clear: right; float: right; margin-bottom: 1em; margin-left: 1em;&quot;&gt;&lt;img border=&quot;0&quot; height=&quot;228&quot; src=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;main-area.png&quot; width=&quot;320&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;&#x2F;div&gt;
+&lt;h3&gt;
+Direct manipulation:&lt;&#x2F;h3&gt;
+In the center is the main editing area where you see the bounds of the device currently being targeted and can&amp;nbsp;directly manipulate scenes for the UI being designed. We think this ability to directly manipulate a design from within the UI engine itself is going to be a cornerstone for enabling greater creativity since there is no ambiguity about what&#x27;s possible when&lt;br &#x2F;&gt;
+you&#x27;re working directly with the technology that&#x27;s going to run the UI when deployed to a device.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+These are the current controls:&lt;br &#x2F;&gt;
+&lt;ul&gt;
+&lt;li&gt;Middle mouse button to rotate the whole scene&lt;&#x2F;li&gt;
+&lt;li&gt;Shift + middle mouse to pan the scene&lt;&#x2F;li&gt;
+&lt;li&gt;&#x27;+&#x27; and &#x27;-&#x27; to zoom in and out&lt;&#x2F;li&gt;
+&lt;li&gt;Left click and drag to move an object (object should not already be selected)&lt;&#x2F;li&gt;
+&lt;li&gt;Left click and drag a selected object to rotate&lt;&#x2F;li&gt;
+&lt;li&gt;Ctrl-Z and Ctrl-Y for Undo and Redo respectively&lt;&#x2F;li&gt;
+&lt;li&gt;Ctrl-S to Save the current document&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;br &#x2F;&gt;
+&lt;div&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;
+&lt;br &#x2F;&gt;&lt;&#x2F;div&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;
+&lt;a href=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;play-mode.png&quot; imageanchor=&quot;1&quot; style=&quot;clear: left; float: left; margin-bottom: 1em; margin-right: 1em;&quot;&gt;&lt;img border=&quot;0&quot; height=&quot;266&quot; src=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;play-mode.png&quot; width=&quot;400&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;&#x2F;div&gt;
+&lt;br &#x2F;&gt;
+&lt;h3&gt;
+In-line&amp;nbsp;previews...&lt;&#x2F;h3&gt;
+&lt;div&gt;
+Without leaving the designer it&#x27;s possible to toggle on and off the clutter of the editing tools, such as the grid overlay, and also toggle fullscreen effects such as the depth-of-field effect shown here.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+&lt;i&gt;Currently this is done by pressing the &#x27;P&#x27; key.&lt;&#x2F;i&gt;&lt;&#x2F;div&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;
+&lt;a href=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;right-pane.png&quot; imageanchor=&quot;1&quot; style=&quot;clear: right; float: right; margin-bottom: 1em; margin-left: 1em;&quot;&gt;&lt;img border=&quot;0&quot; height=&quot;320&quot; src=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;right-pane.png&quot; width=&quot;117&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;&#x2F;div&gt;
+&lt;h3&gt;
+Editing properties:&lt;&#x2F;h3&gt;
+&lt;&#x2F;div&gt;
+&lt;div&gt;
+Properties are another cornerstone&amp;nbsp;for Rig but first I should introduce what Entities and Components are.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+A scene in Rig is comprised of primitives called entities which basically just represent a 3D transformation relative to a parent. What really makes entities interesting are components&amp;nbsp;which attach features to entities. Components can represent anything really but examples currently include geometry, material, camera and lighting state.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+When you click an asset and that&#x27;s added to the scene, what actually happens is that we create a new entity and also a new component that refers to the clicked asset which is attached to the entity. The kind of component created depends on the kind of asset you click. If you click an asset with an existing entity selected, that lets you build up a collection of components attached to a single entity.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+Each component attached to an entity comes with a set of properties. The properties of the currently selected entity and those of all attached components are displayed on the right hand side of the interface. The effect of manipulating these properties can immediately be seen in the main editing area.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+The little red record button (&lt;a href=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;record-button.png&quot; imageanchor=&quot;1&quot; style=&quot;margin-left: 1em; margin-right: 1em;&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;record-button.png&quot; &#x2F;&gt;&lt;&#x2F;a&gt;)&amp;nbsp;that you can see next to some of the properties is used to add that property into the current timeline for animating...&lt;&#x2F;div&gt;
+&lt;div&gt;
+&lt;br &#x2F;&gt;&lt;&#x2F;div&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;
+&lt;a href=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;timeline.png&quot; imageanchor=&quot;1&quot; style=&quot;clear: left; float: left; margin-bottom: 1em; margin-right: 1em;&quot;&gt;&lt;img border=&quot;0&quot; height=&quot;63&quot; src=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;timeline.png&quot; width=&quot;320&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;&#x2F;div&gt;
+&lt;h3&gt;
+Timelines:&lt;&#x2F;h3&gt;
+Once you&#x27;ve built up a scene of Entities then authoring animations is pretty simple. Clicking the red record button of a property says that you want to change the property&#x27;s value over time and a marker will pop up in the timeline view at the bottom. Left clicking and dragging on the timeline lets you scrub forwards and backwards in time. If you scrub forwards in time and then change a recorded property then a new marker pops up for that property at the current time. Left clicking markers lets you select and move marks. Property values are then automatically interpolated (tweened)&amp;nbsp;for timeline offsets that lay in between specific markers.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+These are the current timeline controls:&lt;br &#x2F;&gt;
+&lt;ul&gt;
+&lt;li&gt;Left click lets you scrub the current timeline position&lt;&#x2F;li&gt;
+&lt;li&gt;Left clicking markers lets you select marks; Shift + Left click lets you select multiple markers&lt;&#x2F;li&gt;
+&lt;li&gt;Left clicking and dragging lets you move selected markers left and right&lt;&#x2F;li&gt;
+&lt;li&gt;Delete lets you remove markers&lt;&#x2F;li&gt;
+&lt;li&gt;Ctrl-Z and Ctrl-Y also let you undo and redo timeline changes&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2&gt;
+Effects&lt;&#x2F;h2&gt;
+We started with a fairly conservative set of effects for Rig 1, opting for effects that are well understood and widely used by game developers. This reduced some of the initial development risk for us but there is a chance that our choices will give the impression we&#x27;re&amp;nbsp;simply trying to make UIs that look like console games which isn&#x27;t the intention.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+Modern GPUs are extremely flexible pieces of hardware that enable an unimaginably broad range of visual effects, but they are also pretty complex. If you really want to get anything done with a GPU at a high level you quickly have to lay down some constraints, and make some trade-offs.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+The effects we started with have a long history in game development and so we know they work well together. These effects emphasize building photorealistic scenes but there are lots of non-photorealistic effects and generative art techniques we are also interested in supporting within Rig. Since these are more specialized we didn&#x27;t feel they should be our first focus while bootstrapping the tool itself.&lt;br &#x2F;&gt;
+&lt;h3&gt;
+Lighting&lt;&#x2F;h3&gt;
+&lt;div&gt;
+I&#x27;m sure you can guess what this effect enables, but here&#x27;s a video anyway that shows a 3D model loaded in Rig and how its colour changes as I rotate it or if I change the lighting direction:&lt;&#x2F;div&gt;
+&lt;div&gt;
+&lt;br &#x2F;&gt;&lt;&#x2F;div&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: left; text-align: center;&quot;&gt;
+&lt;video width=&quot;320&quot; height=&quot;266&quot; controls&gt;
+    &lt;source src=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;3d-gnome-foot.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+&lt;&#x2F;video&gt;
+&lt;&#x2F;div&gt;
+&lt;div&gt;
+&lt;br &#x2F;&gt;
+Although I don&#x27;t envisage&amp;nbsp;using glaringly 3D models for core user interface elements I think there could be some scope for more subtle use of 3D models in live backgrounds for instance.&lt;&#x2F;div&gt;
+&lt;h3&gt;
+Shadow mapping&lt;&#x2F;h3&gt;
+&lt;div&gt;
+Shadow mapping is a widely used technique for calculating real-time shadows that basically involves rendering the scene from the point of view of the light to find out what objects are directly exposed to the light. That image is then referenced when rendering the objects normally to determine what parts of the object are in shadow so the computed colours can be darkened.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+Shadows can be used to clarify how objects are arranged&amp;nbsp;spatially relative to one another and we think there&#x27;s potential for user interfaces to use depth cues perhaps to help define focus, relevance&amp;nbsp;or the age of visible items but also for purely&amp;nbsp;aesthetic&amp;nbsp;purposes.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;&lt;&#x2F;div&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: right; text-align: center;&quot;&gt;
+&lt;video width=&quot;320&quot; height=&quot;266&quot; controls&gt;
+    &lt;source src=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;shadows.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+&lt;&#x2F;video&gt;
+&lt;&#x2F;div&gt;
+&lt;h3&gt;
+Bump mapping&lt;&#x2F;h3&gt;
+&lt;div&gt;
+This is a widely used technique in game engines that lets you&amp;nbsp;efficiently emboss a surface with bumps and troughs to make it more&amp;nbsp;visually interesting under dynamic lighting. For an example use case in UIs, if we consider&amp;nbsp;where we use simple silhouette emblems in UIs today, such as status&amp;nbsp;icons you might be able to imagine introducing a subtle form of&amp;nbsp;lighting over the UI (maybe influenced by touch input or just the time&lt;&#x2F;div&gt;
+&lt;div&gt;
+of day) and imagine the look of light moving over those shapes.&lt;&#x2F;div&gt;
+&lt;div&gt;
+&lt;br &#x2F;&gt;&lt;&#x2F;div&gt;
+&lt;div&gt;
+Rig provides a convenient, standalone tool that can take an image and output a bump map, or take a bump map to output a normal map. These examples show an original icon, followed by its bump map and then its normal map:&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;&lt;&#x2F;div&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: none; text-align: center;&quot;&gt;
+&lt;a href=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;emblem-synchronizing.png&quot; imageanchor=&quot;1&quot; style=&quot;clear: left; float: left; margin-bottom: 1em; margin-right: 1em;&quot;&gt;&lt;img border=&quot;0&quot; height=&quot;100&quot; src=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;emblem-synchronizing.png&quot; width=&quot;100&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;&#x2F;div&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: none; text-align: center;&quot;&gt;
+&lt;a href=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;emblem-bump-map.png&quot; imageanchor=&quot;1&quot; style=&quot;clear: none; float: left; margin-bottom: 1em; margin-right: 1em;&quot;&gt;&lt;img border=&quot;0&quot; height=&quot;100&quot; src=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;emblem-bump-map.png&quot; width=&quot;100&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;&#x2F;div&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: none; text-align: center;&quot;&gt;
+&lt;a href=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;emblem-normal-map.png&quot; imageanchor=&quot;1&quot; style=&quot;clear: none; float: left; margin-bottom: 1em; margin-right: 1em;&quot;&gt;&lt;img border=&quot;0&quot; height=&quot;100&quot; src=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;emblem-normal-map.png&quot; width=&quot;100&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;&#x2F;div&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;
+&lt;br &#x2F;&gt;&lt;&#x2F;div&gt;
+&lt;i&gt;Note: There are sometimes better ways calculate normal maps for specific use cases but this tool at least gives us one general purpose technique as a starting point. An artist might for example at least want to hand tune the bump map before generating a normal map.&lt;&#x2F;i&gt;&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+This video shows the gist of what this effect enables, though for a more realistic use case I think it would deserve a more hand-tuned bump map, and more suitable texture mapping.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;
+&lt;video width=&quot;320&quot; height=&quot;266&quot; controls&gt;
+    &lt;source src=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;normal-map.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+&lt;&#x2F;video&gt;
+&lt;&#x2F;div&gt;
+&lt;br &#x2F;&gt;
+&lt;h3&gt;
+Alpha masks&lt;&#x2F;h3&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;
+&lt;a href=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;gradient.png&quot; imageanchor=&quot;1&quot; style=&quot;clear: right; float: right; margin-bottom: 1em; margin-left: 1em;&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;gradient.png&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;&#x2F;div&gt;
+&lt;div&gt;
+Rig provides a way to associate an alpha mask with an entity that can be used to cut shapes out of an image and since the threshold value (used to decide what level of alpha should act as a mask) can be animated that means you can also design the masks with animations in mind. For example if you have a gradient mask like this:&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;&lt;&#x2F;div&gt;
+&lt;div&gt;
+If we animate the threshold between 0 to 1 we will see a diagonal swipe in&#x2F;out effect applied to the primary texture.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;&lt;&#x2F;div&gt;
+This video shows a simple example of animating the threshold with two different mask assets:&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;
+&lt;video width=&quot;320&quot; height=&quot;266&quot; controls&gt;
+    &lt;source src=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;alpha-mask-swipe.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+&lt;&#x2F;video&gt;
+&lt;&#x2F;div&gt;
+&lt;div&gt;
+&lt;br &#x2F;&gt;&lt;&#x2F;div&gt;
+&lt;h3&gt;
+Depth of field&lt;&#x2F;h3&gt;
+&lt;div&gt;
+&lt;span style=&quot;font-size: small;&quot;&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;Rig implements a basic depth of field effect that emulates how camera lenses can be made to bring a subject into sharp focus while leaving the foreground and background looking soft and out of focus.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;br &#x2F;&gt;
+&lt;span style=&quot;font-size: small;&quot;&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;&lt;br &#x2F;&gt;&lt;&#x2F;span&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;This example video alludes to using the effect for moving focus through a list of items that extends into the depths of the screen.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;div&gt;
+&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;
+&lt;video width=&quot;320&quot; height=&quot;266&quot; controls&gt;
+    &lt;source src=&quot;&#x2F;assets&#x2F;images&#x2F;rig&#x2F;depth-of-field-moving-focus.mp4&quot; type=&quot;video&#x2F;mp4&quot;&gt;
+&lt;&#x2F;video&gt;
+&lt;&#x2F;div&gt;
+&lt;h3&gt;
+Status
+&lt;&#x2F;h3&gt;
+&lt;div&gt;
+At this point Rig can be used for some kinds of visual animation prototyping but it isn&#x27;t yet enough to create a standalone application since we can&#x27;t yet incorporate application logic or data.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;&lt;&#x2F;div&gt;
+&lt;div&gt;
+Our priority now is to get Rig to the point where it can be used end-to-end to design and run UIs as quickly as possible. As such we&#x27;re defining our next milestones in terms of enabling specific kinds of UIs so we have concrete benchmarks to focus on.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+Our next technical aim is to support application logic, basic input and the ability to interactively bind properties with expressions. As a milestone benchmark we plan to&amp;nbsp;create a Fox, Goose and Corn puzzle, chosen due to its simple logic requirements and no need to fetch and process external data.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+The technical aim after that is to support data sources, such as contact lists or message notifications as assets where we can interactively describe how to visualize that data. The benchmark for this work will be a Twitter feed application.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+I&#x27;m particularly looking forward to getting our ideas for data integration working since the approach we&#x27;ve come up with should allow much greater creativity&amp;nbsp;for things like showing a list of contacts or notifications while simultaneously also being naturally efficient by only focusing on what&#x27;s visible to the user.&lt;br &#x2F;&gt;
+&lt;h3&gt;
+Summary&lt;&#x2F;h3&gt;
+So hopefully if you read this far you are interested in what we&#x27;re creating with Rig. We&#x27;re hoping to make Rig appeal to both Designers&amp;nbsp;and Engineers who are looking to do something a bit more interesting with their interfaces.&amp;nbsp;I&#x27;d like to invite the brave to go and check out the code&amp;nbsp;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;01org&#x2F;rig&quot; target=&quot;_blank&quot;&gt;here&lt;&#x2F;a&gt;, and I hope the rest of you will follow our progress and feel free to leave comments and questions below.&lt;&#x2F;div&gt;</content>
+	</entry>
+</feed>

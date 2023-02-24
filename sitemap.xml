@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://rib.github.io/</loc>
+    </url>
+    <url>
+        <loc>https://rib.github.io/categories/</loc>
+    </url>
+    <url>
+        <loc>https://rib.github.io/posts/</loc>
+    </url>
+    <url>
+        <loc>https://rib.github.io/posts/rig-introduction/</loc>
+        <lastmod>2012-10-31</lastmod>
+    </url>
+    <url>
+        <loc>https://rib.github.io/posts/rig-status-update/</loc>
+        <lastmod>2013-07-15</lastmod>
+    </url>
+    <url>
+        <loc>https://rib.github.io/tags/</loc>
+    </url>
+</urlset>
